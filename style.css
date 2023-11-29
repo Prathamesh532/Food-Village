@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 1.5rem;
+    border: 1px solid  black;
+    padding: 20px;
+    border-radius: 40px;
+    background-color: lightgreen;
+}
+
+.header-con{
+    display: flex;
+    justify-content: center;
+}
+
+.nav-items > ul  {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.orderBtn{
+    height: 40px;
+    width: 120px;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.nav-items > ul > li {
+    font-size: 1rem;
+}
+
+.nav-items {
+    display: flex;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+
+.card-container{
+    text-align: center;
+    border-radius: 5px;
+    width: 19%;
+    height: 385px;
+    margin: 20px;
+    transition: all .3s;
+    box-shadow: 0 4px 8px #0003;
+    border-radius: 20px;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px 20px 0 0 ;
+}
+
+
+
+.resName{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+}
+
+.title , .rating {
+    font-size: 24px; 
+    font-weight: 700;
+}
+
+.cuisines{
+    font-size: 13px;
+
+}
