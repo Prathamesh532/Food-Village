@@ -10,13 +10,16 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import RestrauntMenu from "./components/RestrauntMenu";
 import WhatInMind from "./components/WhatInMind";
+import CarouselContainer from "./components/CarouselContainer";
+import CarouselItems from "./components/CarouselItems";
 
 const AppLayout = () => {
   return (
     <>
       <Header />
+      <CarouselContainer />
       <Outlet />
-      <WhatInMind />
+      {/* <WhatInMind /> */}
     </>
   );
 };

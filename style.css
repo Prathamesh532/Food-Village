@@ -1,14 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     width: 75%;
     margin: 1.5rem auto;
-    border: 1px solid  black;
+    border: 1px solid black;
     padding: 20px;
     border-radius: 40px;
     background-color: rgba(162, 243, 168, 0.75);
@@ -16,12 +16,12 @@
     -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
-.header-con{
+.header-con {
     display: flex;
     justify-content: center;
 }
 
-.nav-items > ul  {
+.nav-items>ul {
     display: flex;
     list-style: none;
     gap: 1.5rem;
@@ -29,7 +29,7 @@
     align-items: center;
 }
 
-.orderBtn{
+.orderBtn {
     height: 40px;
     width: 120px;
     padding: 10px;
@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.nav-items > ul > li {
+.nav-items>ul>li {
     font-size: 1rem;
 }
 
@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.res-container{
+.res-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -58,7 +58,7 @@
 }
 
 
-.card-container{
+.card-container {
     text-align: center;
     border-radius: 5px;
     width: 23%;
@@ -73,30 +73,31 @@
     width: 100%;
     object-fit: cover;
     height: 200px;
-    border-radius: 20px 20px 0 0 ;
+    border-radius: 20px 20px 0 0;
 }
 
 
 
-.resName{
+.resName {
     display: flex;
     justify-content: space-between;
     margin: 10px;
     align-items: center;
 }
 
-.title , .rating {
-    font-size: 1.5rem; 
+.title,
+.rating {
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
-.cuisines{
-    font-size:  0.8rem;
+.cuisines {
+    font-size: 0.8rem;
 
 }
 
 /* Home */
-.home{
+.home {
     height: 100vh;
     display: flex;
     justify-content: space-between;
@@ -104,7 +105,7 @@
     margin: 0px 50px 0 50px;
 }
 
-.home-left{
+.home-left {
     width: 50%;
     height: 400px;
     display: flex;
@@ -114,7 +115,7 @@
     padding: 20px;
 }
 
-.homw-word{
+.homw-word {
     font-size: 44px;
     font-weight: 900;
 }
@@ -124,12 +125,12 @@
     line-height: 20px;
 }
 
-.home-right img{
+.home-right img {
     width: 400px;
     height: 400px;
 }
 
-.orderBtn{
+.orderBtn {
     color: white;
     background-color: orange;
     border: none;
@@ -138,19 +139,89 @@
 
 /* shrimer */
 
-.shrimer{
+.shrimer {
     margin: 2rme;
     padding: 2rem;
 }
 
 /* what in mind */
 
-.whatInMindConatiner{
+.whatInMindConatiner {
     margin: 2rem;
     padding: 20px;
 }
 
-.whatInMindConatiner h1{
+.whatInMindConatiner h1 {
     text-align: center;
 }
 
+
+
+/* carousel container */
+
+.CarouselContainer {
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.CarouselItems {
+   height: 200px;
+   width: 250px;
+   display: flex;
+   align-items: center;
+   padding: 15px;
+   perspective: 100px;
+}
+
+
+.CarouselImage {
+    height: 100%;
+    transition: transform 1s;
+}
+
+.CarouselImage:hover{
+    transform: translateZ(20px);
+}
+
+.CarouselTrack {
+    display: flex;
+    width: calc(250 * 18);
+    animation: scroll 40s linear infinite;
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 9));        
+    }
+}
+
+.CarouselContainer::before,
+.CarouselContainer::after {
+    background: linear-gradient(to right, rgba(255,255,255,1) 0% , rgba(255,255,255,0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.CarouselContainer::before {
+    left: 0;
+    top: 0;
+}
+
+.CarouselContainer::after{
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
