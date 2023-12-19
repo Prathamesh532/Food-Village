@@ -7,11 +7,13 @@
     display: flex;
     justify-content: space-between;
     width: 75%;
-    margin: 1.5rem;
+    margin: 1.5rem auto;
     border: 1px solid  black;
     padding: 20px;
     border-radius: 40px;
-    background-color: lightgreen;
+    background-color: rgba(162, 243, 168, 0.75);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .header-con{
@@ -22,10 +24,11 @@
 .nav-items > ul  {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    gap: 1.5rem;
     justify-content: space-between;
     align-items: center;
 }
+
 .orderBtn{
     height: 40px;
     width: 120px;
@@ -40,6 +43,7 @@
 
 .nav-items {
     display: flex;
+    align-items: center;
 }
 
 .res-container{
@@ -47,7 +51,7 @@
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     margin: 1rem;
     padding: 20px;
     border-radius: 40px;
@@ -57,7 +61,7 @@
 .card-container{
     text-align: center;
     border-radius: 5px;
-    width: 19%;
+    width: 23%;
     height: 385px;
     margin: 20px;
     transition: all .3s;
@@ -67,6 +71,7 @@
 
 .card-img {
     width: 100%;
+    object-fit: cover;
     height: 200px;
     border-radius: 20px 20px 0 0 ;
 }
@@ -81,11 +86,71 @@
 }
 
 .title , .rating {
-    font-size: 24px; 
+    font-size: 1.5rem; 
     font-weight: 700;
 }
 
 .cuisines{
-    font-size: 13px;
+    font-size:  0.8rem;
 
 }
+
+/* Home */
+.home{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    margin: 0px 50px 0 50px;
+}
+
+.home-left{
+    width: 50%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.homw-word{
+    font-size: 44px;
+    font-weight: 900;
+}
+
+.home-left p {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.home-right img{
+    width: 400px;
+    height: 400px;
+}
+
+.orderBtn{
+    color: white;
+    background-color: orange;
+    border: none;
+}
+
+
+/* shrimer */
+
+.shrimer{
+    margin: 2rme;
+    padding: 2rem;
+}
+
+/* what in mind */
+
+.whatInMindConatiner{
+    margin: 2rem;
+    padding: 20px;
+}
+
+.whatInMindConatiner h1{
+    text-align: center;
+}
+
