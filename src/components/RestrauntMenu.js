@@ -1,25 +1,11 @@
-import { useState, useEffect } from "react";
 import Shrimmer from "./Shrimmer";
 import { useParams } from "react-router-dom";
+import useMenu from "../utils/useMenu";
 
 const RestrauntMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  const { resId } = useParams();
 
-  const {resId} = useParams()
-  console.log(resId)
-
-  useEffect(() => {
-    fetchMenuData();
-  }, []);
-
-  const fetchMenuData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.1854128&lng=73.0203382&restaurantId=" + resId + "&catalog_qa"
-    );
-
-    const json = await data.json();
-    setResInfo(json?.data);
-  };
+  const resInfo = useMenu(resId);
 
   if (resInfo === null) return <Shrimmer />;
 
@@ -36,7 +22,7 @@ const RestrauntMenu = () => {
         {itemCards.map((item) => {
           return (
             <li key={item.card.info.id}>
-              {item.card.info.name} Rs: {item.card.info.price/100}
+              {item.card.info.name} Rs: {item.card.info.price / 100}
             </li>
           );
         })}

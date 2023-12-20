@@ -170,11 +170,8 @@
 }
 
 .CarouselItems {
-   height: 200px;
-   width: 250px;
    display: flex;
    align-items: center;
-   padding: 15px;
    perspective: 100px;
 }
 
@@ -201,7 +198,7 @@
     }
 
     100% {
-        transform: translateX(calc(-250px * 9));        
+        transform: translateX(calc(-250px * 8));        
     }
 }
 

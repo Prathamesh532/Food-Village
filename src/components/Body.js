@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Shrimmer from "./Shrimmer";
+import CarouselContainer from "./CarouselContainer";
+import { RESTRAUNT_API } from "../utils/constant";
+import useRestraunts from "../utils/useRestraunts";
 
 const filterRestraunts = (restarunts, text) => {
   const filterRes = restarunts.filter((res) =>
@@ -10,33 +13,18 @@ const filterRestraunts = (restarunts, text) => {
 };
 
 const Body = () => {
-  const [listofRestraunts, setListofRestraunts] = useState([]);
-  const [filterRestrauntList, setFilterRestrauntList] = useState([]);
+  // const [listofRestraunts, setListofRestraunts] = useState([]);
+  // const [filterRestrauntList, setFilterRestrauntList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    getData();
-  }, []);
+  const {listofRestraunts , filterRestrauntList } = useRestraunts()
 
-  const getData = async () => {
-    // const data = await fetch(
-    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1854128&lng=73.0203382&page_type=DESKTOP_WEB_LISTING"
-    // );
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559"
-    );
+  // const 
 
-    const json = await data.json();
-    const restaurants =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    setListofRestraunts(restaurants);
-    setFilterRestrauntList(restaurants);
-  };
-
-  const handleSearch = (text) => {
-    const filterFunction = filterRestraunts(listofRestraunts, text);
-    setFilterRestrauntList(filterFunction);
-  };
+  // const handleSearch = (text) => {
+  //   const filterFunction = filterRestraunts(listofRestraunts, text);
+  //   filterRestrauntList(filterFunction);
+  // };
 
   return listofRestraunts.length === 0 ? (
     <Shrimmer />
@@ -49,23 +37,25 @@ const Body = () => {
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
-            handleSearch(e.target.value);
+            // handleSearch(e.target.value);
           }}
         ></input>
 
         <button onClick={() => setSearchText("")}>Clear</button>
 
-        <button
+        {/* <button
           onClick={() => {
             let topRatingRes = listofRestraunts.filter(
               (res) => res.info.avgRating > 4.5
             );
-            setFilterRestrauntList(topRatingRes);
+            filterRestrauntList(topRatingRes);
           }}
         >
           Top Rated
-        </button>
+        </button> */}
       </div>
+      <CarouselContainer />
+
       <div className="res-container">
         {filterRestrauntList.map((restaurant) => (
           <Card resData={restaurant} key={restaurant.info.id} />

@@ -17,7 +17,6 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <CarouselContainer />
       <Outlet />
       {/* <WhatInMind /> */}
     </>
