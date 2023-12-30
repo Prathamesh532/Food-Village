@@ -1,5 +1,5 @@
 import React from "react";
-import SimpleClass from "./SimpleClass";
+import SimpleClass from "../components/SimpleClass";
 import { Component } from "react";
 
 class About extends Component {

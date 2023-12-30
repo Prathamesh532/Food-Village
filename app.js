@@ -1,17 +1,15 @@
 //using js
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css"
 
-import Header from "./components/Header";
-import Body from "./components/Body";
-import Home from "./components/Home";
-import About from "./components/About";
+import Header from "./src/components/Header";
+import Body from "./src/pages/Body";
+import About from "./src/pages/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Contact from "./components/Contact";
-import RestrauntMenu from "./components/RestrauntMenu";
-import WhatInMind from "./components/WhatInMind";
-import CarouselContainer from "./components/CarouselContainer";
-import CarouselItems from "./components/CarouselItems";
+import Contact from "./src/pages/Contact";
+import RestrauntMenu from "./src/components/RestrauntMenu";
+
 
 const AppLayout = () => {
   return (
@@ -48,5 +46,5 @@ const myRouter = createBrowserRouter([
   },
 ]);
 
-const root2 = ReactDOM.createRoot(document.getElementById("root")); // react will overwrite all content in div if there are any
-root2.render(<RouterProvider router={myRouter} />);
+const root = ReactDOM.createRoot(document.getElementById("root")); // react will overwrite all content in div if there are any
+root.render(<RouterProvider router={myRouter} />);
