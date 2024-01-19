@@ -7,8 +7,12 @@ export const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.1854128&lng=73.0203382&restaurantId=";
 
 export const RESTRAUNT_API =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559";
+"https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.969539&lng=72.819329&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
 
 // const data = await fetch(
 //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1854128&lng=73.0203382&page_type=DESKTOP_WEB_LISTING"
 // );
+
+
+// "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559";

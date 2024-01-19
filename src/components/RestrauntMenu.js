@@ -2,47 +2,42 @@ import Shrimmer from "./Shrimmer";
 import { useParams } from "react-router-dom";
 import useMenu from "../utils/useMenu";
 import { IMG_URL } from "../utils/constant";
+import ItemsCatogry from "./ItemsCatogry";
+import { useState } from "react";
 
 const RestrauntMenu = () => {
+  const [isShow, setIsShow] = useState(0);
+
   const { resId } = useParams();
   const resInfo = useMenu(resId);
-
-  console.log(resId);
 
   if (resInfo === null) return <Shrimmer />;
 
   const { name } = resInfo?.cards[0]?.card?.card?.info;
-  const { itemCards } =
-    resInfo.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-
-  console.log(itemCards);
+  const itemListCatogry =
+    resInfo.cards[2].groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+      (item) =>
+        item?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
   return (
     <div className="">
-      <h1 className="text-center test-[44px] font-serif">{name}</h1>
+      <h1 className="text-center text-[24px] font-serif">{name}</h1>
 
-      <div className=" w-6/12 m-auto  p-3 ">
-        {itemCards.map((img) => {
+      <div className="">
+        {itemListCatogry.map((data , index) => {
           return (
-            <div
-              key={img.card.info.id}
-              className="flex justify-between border-b-2 my-3 border-gray-400 "
-            >
-              <div>
-                <p key={img.card.info.id}>{img.card.info.name}</p>
-              </div>
-              <div className="p-2 rounded-lg">
-                <img
-                  className="w-[100px] h-[80px] object-cover"
-                  key={img.card.info.id}
-                  src={`${IMG_URL}${img.card.info.imageId}`}
-                />
-              </div>
+            <div className="flex justify-center" key={data.card.card.title}>
+              <ItemsCatogry
+                isShow={isShow === index ? true : false }
+                data={data}
+                setIsShow={() => setIsShow(index)}
+              />
             </div>
           );
         })}
       </div>
-
     </div>
   );
 };

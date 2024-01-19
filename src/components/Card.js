@@ -8,29 +8,28 @@ const Card = (props) => {
     resData?.info;
 
   return (
-    <div className="flex flex-wrap w-[250px] h-[380px] rounded-[25px] gap-0 shadow-xl">
-      <img
-        className="w-[100%] h-[50%] rounded-t-[25px]"
-        src={`${IMG_URL}${cloudinaryImageId}`}
-        alt="card-img"
-      />
-      <div className="flex justify-between items-center w-[100%]">
-        <Link to={"/restraunt/" + id}>
-          <span className="px-2 pt-0 font-bold text-black text-[16px]">
-            {name}
-          </span>
-        </Link>
-        <span className="px-2"> {avgRating} ⭐</span>
-      </div>
+    <div className="flex flex-wrap w-[250px] h-[380px] rounded-[25px] gap-0 shadow-xl hover:scale-95 dark:bg-[#0a0d10] dark:text-[#FFFFFF]">
+    <img
+      className="w-[100%] h-[50%] rounded-t-[25px]"
+      src={`${IMG_URL}${cloudinaryImageId}`}
+      alt="card-img"
+    />
+    <div className="flex justify-between items-center w-[100%]">
+      <span className="px-2 pt-0 font-bold text-[16px] dark:text-[#FFFFFF]">
+        {name}
+      </span>
 
-      <p className=" text-gray-700 font-sans w-[100%] px-1 text-[12px] font-medium ">
-        {cuisines.join(", ")}
-      </p>
-      <h4 className="text-center text-[14px] w-[100%]">{areaName}</h4>
-      <button className="bg-green-500 px-5 w-[90%] h-[50px] mx-auto border-none rounded-lg text-white font-semibold">
-        Vist Restraunt
-      </button>
+      <span className="px-2"> {avgRating} ⭐</span>
     </div>
+
+    <p className="text-gray-700 font-sans w-[100%] px-1 text-[12px] font-medium dark:text-[#CCCCCC]">
+      {cuisines.join(", ")}
+    </p>
+    <h4 className="text-center text-[14px] font-[500] w-[100%] dark:text-[#CCCCCC]">{areaName}</h4>
+    <button className="bg-white px-5 w-[90%] border border-green-500 h-[50px] mx-auto rounded-lg text-green-500 font-semibold hover:bg-green-500 hover:text-white dark:bg-[#2b2d2f] dark:border-[#4b4e51]">
+      <Link to={"/restraunt/" + id}>Visit Restaurant</Link>
+    </button>
+  </div>
   );
 };
 

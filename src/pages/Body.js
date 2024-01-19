@@ -5,6 +5,8 @@ import Shrimmer from "../components/Shrimmer";
 import CarouselContainer from "../components/CarouselContainer";
 import { RESTRAUNT_API } from "../utils/constant";
 import useRestraunts from "../utils/useRestraunts";
+import Search from "../assests/icons/Search.svg"
+import Home from "./Home";
 
 const filterRestraunts = (restarunts, text) => {
   const filterRes = restarunts.filter((res) =>
@@ -26,7 +28,7 @@ const Body = () => {
   const getResData = async () => {
     const data = await fetch(RESTRAUNT_API);
     const json = await data.json();
-    // console.log(json)
+    console.log(json)
     const restaurants =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
@@ -46,18 +48,22 @@ const Body = () => {
   return listofRestraunts.length === 0 ? (
     <Shrimmer />
   ) : (
-    <>
-      <div className="p-[20px] m-3">
+    <div className="dark:bg-[#040506]">
+      <Home />
+      <div className="p-[20px] m-3 " >
+        <img src={Search} className="absolute top-[95.8%] px-4 text-[16px]" />
         <input
-          className="border border-gray-200 rounded-[5px] px-3"
+          className="border border-gray-200 rounded-[50px] px-10 py-2 w-[40%]"
           type="text"
-          placeholder="Search Restaurants.."
+          placeholder="Search Restraunts"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
             handleSearch(e.target.value);
           }}
-        ></input>
+          name=""
+        >
+        </input>
 
         <button
           className="px-[10px] m-4 rounded-md text-white bg-orange-300"
@@ -94,7 +100,7 @@ const Body = () => {
           )
         )} */}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ import About from "./src/pages/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./src/pages/Contact";
 import RestrauntMenu from "./src/components/RestrauntMenu";
-
+import Home from "./src/pages/Home"
 
 const AppLayout = () => {
   return (
