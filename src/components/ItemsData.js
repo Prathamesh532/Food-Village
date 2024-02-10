@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux";
+import { additem } from "../redux/cartSlice";
+
 const ItemsData = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleCartItems = (item) => {
+    dispatch(additem(item));
+  };
+
   return (
     <div className="">
       {data.card.card.itemCards.map((items) => {
@@ -22,7 +31,10 @@ const ItemsData = ({ data }) => {
                 className="h-[96px] w-[118px] object-cover rounded-lg"
                 src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${items.card.info.imageId}`}
               />
-              <button className="w-[80%] font-semibold  border h-[34px] border-gray-200  absolute left-1/2 transform -translate-x-1/2 bottom-2 bg-white text-green-500 rounded-md hover:bg-green-500 hover:text-white">
+              <button
+                className="w-[80%] font-semibold  border h-[34px] border-gray-200  absolute left-1/2 transform -translate-x-1/2 bottom-2 bg-white text-green-500 rounded-md hover:bg-green-500 hover:text-white"
+                onClick={() => handleCartItems(items)}
+              >
                 ADD
               </button>
             </div>

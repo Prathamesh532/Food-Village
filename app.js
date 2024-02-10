@@ -1,7 +1,7 @@
 //using js
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css"
+import "./index.css";
 
 import Header from "./src/components/Header";
 import Body from "./src/pages/Body";
@@ -9,15 +9,21 @@ import About from "./src/pages/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./src/pages/Contact";
 import RestrauntMenu from "./src/components/RestrauntMenu";
-import Home from "./src/pages/Home"
+import Home from "./src/pages/Home";
+import Footer from "./src/pages/Footer";
+
+import { Provider } from "react-redux";
+import appStore from "./src/redux/appStore";
+import Cart from "./src/pages/Cart";
 
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={appStore}>
       <Header />
       <Outlet />
       {/* <WhatInMind /> */}
-    </>
+      <Footer />
+    </Provider>
   );
 };
 
@@ -32,15 +38,19 @@ const myRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />
+        element: <About />,
       },
       {
         path: "/contact",
-        element : <Contact />
+        element: <Contact />,
       },
       {
         path: "/restraunt/:resId",
-        element: <RestrauntMenu />
+        element: <RestrauntMenu />,
+      },
+      {
+        path:"/cart",
+        element: <Cart />
       }
     ],
   },

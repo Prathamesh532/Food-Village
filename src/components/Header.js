@@ -6,10 +6,15 @@ import cart from "../assests/icons/cart.svg"
 import contact from "../assests/icons/contact.svg"
 import cart from "../assests/icons/cart.svg"
 import user from "../assests/icons/user.svg"
-import { motion } from "framer-motion" 
+
+import {additem , removeItem , clearCart} from "../redux/cartSlice"
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const [theme, setTheme] = useDark();
+
+  const cartItems = useSelector((store) => store.cart.items)
+  console.log(cartItems)
 
   const handleDarkMode = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -37,7 +42,7 @@ const Header = () => {
             <li className="font-medium">
               <Link to="/about" className="flex items-center"><img src={cart} className="mx-2" />About</Link>
             </li>
-            <li className="font-medium "><Link to='/' className="flex items-center"><img src={cart} className="mx-2" /> My Cart</Link></li>
+            <li className="font-medium "><Link to='/cart' className="flex items-center"><img src={cart} className="mx-2" />{cartItems.length} Cart</Link></li>
             {/* <button className="bg-orange-500 p-2 rounded-[24px] px-4 text-white font-bold hover:bg-orange-600">
               Order Now
             </button> */}
@@ -48,7 +53,6 @@ const Header = () => {
         </div>
         <div>
           <button onClick={handleDarkMode}>{theme === "light" ? "Dark" : "Light"}</button>
-          <motion.div layout />
         </div>
       </div>
     </div>
